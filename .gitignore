@@ -163,7 +163,7 @@ cython_debug/
 .idea/
 
 poetry.lock
-etl/common/logs/*
+src/currency_quote/common/logs/*
 
 *.DS_Store
 

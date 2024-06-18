@@ -1,18 +1,5 @@
 import os
-from datetime import datetime, timezone, timedelta
-
-def DefaultOutputFolder():
-    """
-    Returns the default output folder path.
-    """
-    return os.path.join(os.path.dirname(__file__), "../../../data/")
-
-
-def DefaultOutputLogFolder() -> str:
-    """
-    Returns the default output log folder path.
-    """
-    return os.path.join(os.path.dirname(__file__), "../logs/")
+from datetime import datetime, timezone
 
 
 def DefaultTimestampStr() -> str:

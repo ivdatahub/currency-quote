@@ -1,6 +1,5 @@
 import logging
 import os
-from etl.common.utils.common import DefaultOutputLogFolder
 
 
 class CustomLogger():
