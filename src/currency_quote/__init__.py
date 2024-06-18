@@ -1,1 +1,1 @@
-## The entrypoint of library
+from .controller import controller as CTRL

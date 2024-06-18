@@ -1,11 +1,14 @@
 [tool.poetry]
-name = "currency-quote-wrapper"
+name = "currency-quote"
 version = "0.0.1"
 description = "Complete solution for extracting currency pair quotes data"
 authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
 readme = "README.md"
 license = "MIT"
-packages = [{ include = "src.currency_quote" }]
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["currency_quote*"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
