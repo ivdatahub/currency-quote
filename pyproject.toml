@@ -12,6 +12,7 @@ include = ["currency_quote*"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+api-to-dataframe = "^1.2.3"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.5.3"
