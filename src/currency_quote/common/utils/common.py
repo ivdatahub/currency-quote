@@ -2,12 +2,14 @@ import os
 from datetime import datetime, timezone
 
 
+
 def DefaultTimestampStr() -> str:
     """
     Returns the current timestamp as a string.
     """
     current = datetime.now().timestamp()
     return str(int(current))
+
 
 def DefaultUTCDatetime() -> str:
     """
