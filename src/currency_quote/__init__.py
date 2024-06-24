@@ -19,12 +19,17 @@ class CurrencyQuote:
         for currency_code in self.currency_code:
             if currency_code in valid_list:
                 validated_list.append(currency_code)
+            else:
+                print(f"Currency code: {currency_code} is not valid")
+
+            if len(validated_list) == 0:
+                raise ValueError("No valid currency code was provided")
 
         return validated_list
 
     @staticmethod
-    def _get_last_quote(currency_params: list):
-        url = API.ENDPOINT_LAST_COTATION + currency_params
+    def _get_last_quote(*args):
+        url = API.ENDPOINT_LAST_COTATION + ','.join(args)
         client = ClientBuilder(
             endpoint=url,
             retry_strategy=RetryStrategies.LinearRetryStrategy
@@ -35,7 +40,8 @@ class CurrencyQuote:
         return response
 
     def get_last_quote(self):
-        return self._get_last_quote(*self._validate_currency_code())
+        last_quote = self._get_last_quote(*self._validate_currency_code())
+        return last_quote
 
     def get_history_quote(self, reference_date: int):
         """
