@@ -1,13 +1,15 @@
 # currency-quote-wrapper: Complete solution for extracting currency pair quotes data
 
 [![PyPI - Status](https://img.shields.io/pypi/status/currency-quote-wrapper?style=for-the-badge&logo=pypi)](https://pypi.org/project/currency-quote-wrapper/)
+
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/currency-quote-wrapper?style=for-the-badge&logo=pypi)](https://pypi.org/project/currency-quote-wrapper/)
+
 [![PyPI - Version](https://img.shields.io/pypi/v/currency-quote-wrapper?style=for-the-badge&logo=pypi)](https://pypi.org/project/currency-quote-wrapper/#history)
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/currency-quote-wrapper?style=for-the-badge&logo=python)
 
 [![CI](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/currency-quote-wrapper/CI.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests+and+pre+build)](https://github.com/IvanildoBarauna/currency-quote-wrapper/actions/workflows/CI.yaml)
-[![CD](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/currency-quote-wrapper/CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&event=release&label=Package_publication)](https://github.com/IvanildoBarauna/currency-quote-wrapper/actions/workflows/CD.yaml)
+[![CD](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/currency-quote-wrapper/CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&event=release&label=Package+publication)](https://github.com/IvanildoBarauna/currency-quote-wrapper/actions/workflows/CD.yaml)
 
 [![Codecov](https://img.shields.io/codecov/c/github/IvanildoBarauna/currency-quote-wrapper?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/IvanildoBarauna/currency-quote-wrapper)
 ## Project Stack
