@@ -1,5 +1,6 @@
 import logging
 import os
+import common
 
 
 class CustomLogger():
@@ -8,7 +9,7 @@ class CustomLogger():
         self._log_format = "%(asctime)s :: %(levelname)s :: %(message)s"
     
     def _make_file_log(self):
-        dir_name = DefaultOutputLogFolder()
+        dir_name = common.DefaultOutputLogFolder()
         os.makedirs(dir_name, exist_ok=True)
         
         with open(dir_name + f"{self.module}.log", "w") as f:
@@ -16,7 +17,8 @@ class CustomLogger():
             
         return dir_name + f"{self.module}.log"
     
-    
+
+
     def _logger(self):
         file_log = self._make_file_log()
             

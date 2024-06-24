@@ -14,7 +14,7 @@ Firstly, thank you very much for your interest in contributing to ETL-awesome-ap
 Clone the forked repository to your local machine using the command:
 
 ```sh
-git clone https://github.com/seu-usuario/ETL-awesome-api.git
+git clone https://github.com/your-username/currency-quote-wrapper.git
 ```
 
 ### 3. Create a Branch

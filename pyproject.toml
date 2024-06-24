@@ -1,10 +1,27 @@
 [tool.poetry]
 name = "currency-quote"
-version = "0.0.1"
+version = "0.0.3a0"
 description = "Complete solution for extracting currency pair quotes data"
 authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
 readme = "README.md"
 license = "MIT"
+
+classifiers=[
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+]
+
+
+[tool.poetry.urls]
+Homepage = "https://pypi.org/project/currency-quote-wrapper"
+Documentation = "https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/README.md"
+Notebook = 'https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/notebooks/example.ipynb'
+ImplementationCase = 'https://github.com/IvanildoBarauna/ETL-awesome-api'
+Issues = "https://github.com/IvanildoBarauna/currency-quote-wrapper/issues"
+Repository = "https://github.com/IvanildoBarauna/currency-quote-wrapper"
 
 [tool.setuptools.packages.find]
 where = ["src/"]

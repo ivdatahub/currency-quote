@@ -1,5 +1,6 @@
 from .config.endpoints import API
 from api_to_dataframe import ClientBuilder, RetryStrategies
+import datetime
 
 
 class CurrencyQuote:
@@ -43,25 +44,41 @@ class CurrencyQuote:
         last_quote = self._get_last_quote(*self._validate_currency_code())
         return last_quote
 
+    @staticmethod
+    def _get_history_quote(*args, reference_date: int):
+
+        result = []
+
+        for currency_code in args:
+            url = \
+                (f"{API.ENDPOINT_HISTORY_COTATION}"
+                 f"{currency_code}"
+                 f"/?start_date={reference_date}&end_date={reference_date}")
+
+            client = ClientBuilder(
+                endpoint=url,
+                retry_strategy=RetryStrategies.LinearRetryStrategy
+            )
+
+            response = client.get_api_data()
+
+            result.append(response[0])
+
+        return result
+
     def get_history_quote(self, reference_date: int):
-        """
-        Title: get_history_quote
-        params: reference_date (int)
-        example: 20240526
+        today = int(datetime.datetime.now().strftime("%Y%m%d"))
+        if reference_date > today:
+            raise ValueError(
+                f"Reference date: {reference_date} is not valid. "
+                f"Make sure you give a correct reference date, e.g.: {today}"
+            )
 
-        returns: the json data with quote of reference_date
+        if reference_date < 20160111:
+            raise ValueError(
+                f"The data is only available from 2016-01-11."
+            )
 
-        """
-        url = \
-            (f"{API.ENDPOINT_HISTORY_COTATION}"
-             f"{self._validate_currency_code()}"
-             f"/?start_date={reference_date}&end_date={reference_date}")
+        hist_quote = self._get_history_quote(*self._validate_currency_code(), reference_date=reference_date)
 
-        client = ClientBuilder(
-            endpoint=url,
-            retry_strategy=RetryStrategies.ExponentialRetryStrategy
-        )
-
-        response = client.get_api_data()
-
-        return response
+        return hist_quote
