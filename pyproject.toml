@@ -14,7 +14,7 @@ include = ["currency_quote*"]
 python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
-coverage = "^7.5.3"
+coverage = "^7.5.4"
 pytest = "^8.2.2"
 poetry-dynamic-versioning = "^1.3.0"
 
