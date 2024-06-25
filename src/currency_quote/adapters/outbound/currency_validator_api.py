@@ -3,7 +3,7 @@ from api_to_dataframe import ClientBuilder, RetryStrategies
 from currency_quote.config.endpoints import API
 
 
-class CurrencyValidator:
+class CurrencyValidator: ##TODO: Precisa depender da Porta de saida
     @staticmethod
     def validate_currency_code(currency_list: list) -> list:
         client = ClientBuilder(
