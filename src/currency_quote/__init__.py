@@ -7,43 +7,6 @@ class CurrencyQuote:
     def __init__(self, currency_list: list):
         self.currency_code = currency_list
 
-    def _validate_currency_code(self) -> list:
-        client = ClientBuilder(
-            endpoint=API.ENDPOINT_AVALIABLE_PARITIES,
-            retry_strategy=RetryStrategies.LinearRetryStrategy
-        )
-
-        valid_list = client.get_api_data()
-
-        validated_list = []
-
-        for currency_code in self.currency_code:
-            if currency_code in valid_list:
-                validated_list.append(currency_code)
-            else:
-                print(f"Currency code: {currency_code} is not valid")
-
-            if len(validated_list) == 0:
-                raise ValueError("No valid currency code was provided")
-
-        return validated_list
-
-    @staticmethod
-    def _get_last_quote(*args):
-        url = API.ENDPOINT_LAST_COTATION + ','.join(args)
-        client = ClientBuilder(
-            endpoint=url,
-            retry_strategy=RetryStrategies.LinearRetryStrategy
-        )
-
-        response = client.get_api_data()
-
-        return response
-
-    def get_last_quote(self):
-        last_quote = self._get_last_quote(*self._validate_currency_code())
-        return last_quote
-
     @staticmethod
     def _get_history_quote(*args, reference_date: int):
 
