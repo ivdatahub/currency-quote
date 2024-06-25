@@ -1,5 +1,6 @@
 # src/currency_quote/application/use_cases/validate_currency.py
 from currency_quote.domain.services.validate_currency import CurrencyValidatorService
+from currency_quote.domain.entities.currency import Currency
 
 
 class ValidateCurrencyUseCase:

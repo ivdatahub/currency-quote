@@ -1,11 +1,13 @@
 # src/currency_quote/application/services/currency_validator_service.py
+from currency_quote.domain.entities.currency import Currency
 from currency_quote.application.ports.outbound.currency_validator_repository import CurrencyValidatorPort
 from currency_quote.adapters.outbound.currency_validator_api import CurrencyValidator
 
 
 class CurrencyValidatorService(CurrencyValidatorPort):
-    def __init__(self):
+    def __init__(self, currency: Currency):
         self.currency_validator = CurrencyValidator()
+        self.currency_list = currency.get_currency_list()
 
     def validate_currency_code(self, currency_list: list) -> list:
         validated_list = self.currency_validator.validate_currency_code(currency_list)
