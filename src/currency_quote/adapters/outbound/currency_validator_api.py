@@ -1,9 +1,10 @@
 # src/currency_quote/adapters/outbound/currency_validator_api.py
 from api_to_dataframe import ClientBuilder, RetryStrategies
 from currency_quote.config.endpoints import API
+from currency_quote.application.ports.outbound.currency_validator_repository import CurrencyValidatorPort
 
 
-class CurrencyValidator: ##TODO: Precisa depender da Porta de saida
+class CurrencyValidator(CurrencyValidatorPort):
     @staticmethod
     def validate_currency_code(currency_list: list) -> list:
         client = ClientBuilder(
