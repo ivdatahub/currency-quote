@@ -2,15 +2,18 @@ from abc import ABC
 from currency_quote.application.ports.inbound.controller import IController
 from currency_quote.application.use_cases.get_last_currency_quote import GetLastCurrencyQuoteUseCase
 from currency_quote.application.use_cases.get_history_currency_quote import GetHistCurrencyQuoteUseCase
+from currency_quote.domain.entities.currency import CurrencyQuote
 
 
-class LibController(IController, ABC):
+class ClientBuilder(IController):
+    def __init__(self, currency: CurrencyQuote):
+        self.currency = currency
 
-    def __init__(self):
-        pass
+    def get_last_quote(self) -> dict:
+        return GetLastCurrencyQuoteUseCase.execute(currency_list=self.currency.get_currency_list())
 
-    def get_last_quote(self, currency_list: list) -> dict:
-        return GetLastCurrencyQuoteUseCase.execute(currency_list=currency_list)
-
-    def get_historical_quotes(self, currency_list: list, reference_date: int) -> dict:
-        return GetHistCurrencyQuoteUseCase.execute(currency_list=currency_list, reference_date=reference_date)
+    def get_history_quote(self, reference_date: int) -> dict:
+        return GetHistCurrencyQuoteUseCase.execute(
+            currency_list=self.currency.get_currency_list(),
+            reference_date=reference_date
+        )

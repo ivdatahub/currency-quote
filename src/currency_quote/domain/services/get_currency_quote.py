@@ -1,12 +1,12 @@
 from currency_quote.application.ports.outbound.currency_repository import ICurrencyRepository
 from currency_quote.application.use_cases.validate_currency import ValidateCurrencyUseCase
-from currency_quote.domain.entities.currency import Currency
+from currency_quote.domain.entities.currency import CurrencyQuote
 
 from typing import Type
 
 
 class GetCurrencyQuoteService:
-    def __init__(self, currency: Currency, currency_repository: Type[ICurrencyRepository]):
+    def __init__(self, currency: CurrencyQuote, currency_repository: Type[ICurrencyRepository]):
         self.currency_list = currency.get_currency_list()
         self.currency_repository = currency_repository
 
