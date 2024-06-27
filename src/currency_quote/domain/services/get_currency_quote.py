@@ -1,20 +1,21 @@
-# src/currency_quote/domain/services/get_currency_quote.py
-from currency_quote.application.ports.inbound.get_currency_quote_use_case import GetCurrencyQuoteUseCase
-from currency_quote.application.ports.outbound.currency_repository import CurrencyRepository
-from currency_quote.domain.entities.currency import Currency
-from currency_quote.domain.services.validate_currency import ValidateCurrency
+from currency_quote.application.ports.outbound.currency_repository import ICurrencyRepository
+from currency_quote.application.use_cases.validate_currency import ValidateCurrencyUseCase
+from currency_quote.domain.entities.currency import CurrencyQuote
+
+from typing import Type
 
 
-class GetCurrencyQuote(GetCurrencyQuoteUseCase):
-    def __init__(self, currency_repository: CurrencyRepository, validate_currency_service: ValidateCurrency):
+class GetCurrencyQuoteService:
+    def __init__(self, currency: CurrencyQuote, currency_repository: Type[ICurrencyRepository]):
+        self.currency_list = currency.get_currency_list()
         self.currency_repository = currency_repository
-        self.validate_currency_service = validate_currency_service
 
-    def execute(self, currency_code: str) -> Currency:
-        if not self.validate_currency_service.execute(currency_code):
-            raise ValueError(f"Código de moeda {currency_code} é inválido.")
+    def last(self) -> dict:
+        return self.currency_repository(self.validate_currency_code()).get_last_quote()
 
-        currency = self.currency_repository.get_currency_quote(currency_code)
-        if not currency:
-            raise ValueError(f"Cotação para a moeda {currency_code} não encontrada.")
-        return currency
+    def history(self, reference_date: int) -> dict:
+        return dict()
+
+    def validate_currency_code(self) -> str:
+        valid_list = ValidateCurrencyUseCase.execute(self.currency_list)
+        return ','.join(valid_list)

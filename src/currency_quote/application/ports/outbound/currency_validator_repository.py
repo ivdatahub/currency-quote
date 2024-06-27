@@ -2,7 +2,12 @@
 from abc import ABC, abstractmethod
 
 
-class CurrencyValidatorPort(ABC):
+class ICurrencyValidator(ABC):
+
     @abstractmethod
-    def validate_currency_code(self, currency_list: list) -> list:
+    def __init__(self, currency_list: list):
+        pass
+
+    @abstractmethod
+    def validate_currency_code(self) -> list:
         pass
