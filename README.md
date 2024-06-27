@@ -71,3 +71,9 @@ client = ClientBuilder(
 print(client.get_last_quote())
 # Get history quote of currency
 print(client.get_history_quote(reference_date=20220101))
+```
+
+## Hexagonal Design of library
+
+![Arch](./hexagonal_design_arch.png)
+
