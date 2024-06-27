@@ -5,7 +5,7 @@ class CurrencyQuote:
         self.currency_list = currency_list
 
     def get_currency_list(self) -> list:
-        if self.currency_list is None:
+        if len(self.currency_list) == 0:
             raise ValueError("Currency list is empty")
 
         return self.currency_list
