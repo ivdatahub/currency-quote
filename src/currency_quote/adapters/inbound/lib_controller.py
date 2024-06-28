@@ -1,4 +1,3 @@
-from abc import ABC
 from currency_quote.application.ports.inbound.controller import IController
 from currency_quote.application.use_cases.get_last_currency_quote import (
     GetLastCurrencyQuoteUseCase,

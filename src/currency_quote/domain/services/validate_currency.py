@@ -1,9 +1,9 @@
 # src/currency_quote/application/services/currency_validator_service.py
+from typing import Type
 from currency_quote.domain.entities.currency import CurrencyQuote
 from currency_quote.application.ports.outbound.currency_validator_repository import (
     ICurrencyValidator,
 )
-from typing import Type
 
 
 class CurrencyValidatorService:

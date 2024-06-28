@@ -1,3 +1,4 @@
+from typing import Type
 from currency_quote.application.ports.outbound.currency_repository import (
     ICurrencyRepository,
 )
@@ -5,8 +6,6 @@ from currency_quote.application.use_cases.validate_currency import (
     ValidateCurrencyUseCase,
 )
 from currency_quote.domain.entities.currency import CurrencyQuote
-
-from typing import Type
 
 
 class GetCurrencyQuoteService:
@@ -20,7 +19,7 @@ class GetCurrencyQuoteService:
         return self.currency_repository(self.validate_currency_code()).get_last_quote()
 
     def history(self, reference_date: int) -> dict:
-        return dict()
+        return {"reference_date": reference_date}
 
     def validate_currency_code(self) -> str:
         valid_list = ValidateCurrencyUseCase.execute(self.currency_list)

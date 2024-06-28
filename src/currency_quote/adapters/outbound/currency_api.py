@@ -28,7 +28,11 @@ class CurrencyAPI(ICurrencyRepository):
         if reference_date > today:
             raise ValueError("Reference date must be less than today")
 
-        url = f"{API.ENDPOINT_HISTORY_COTATION}/{self.currency_codes}?start_date={reference_date}&end_date={reference_date}"
+        url = (
+            f"{API.ENDPOINT_HISTORY_COTATION}"
+            f"/{self.currency_codes}"
+            f"?start_date={reference_date}&end_date={reference_date}"
+        )
         client = ClientBuilder(
             endpoint=url, retry_strategy=RetryStrategies.ExponentialRetryStrategy
         )

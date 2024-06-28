@@ -50,4 +50,5 @@ versioning = "semantic"
 disable = [
     "C0114", # missing-module-docstring
     "C0116", # missing-function-docstring
+    "R0903", # too-few-public-methods
 ]

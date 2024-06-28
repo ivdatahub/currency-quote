@@ -21,5 +21,6 @@ repos:
           [
             "-rn", # Only display messages
             "-sn", # Don't display the score
-            "--disable=C0114,C0115,C0116" # Disable docstring checks
+            # Disable docstring checks and to few public methods
+            "--disable=C0114,C0115,C0116, R0903"
           ]

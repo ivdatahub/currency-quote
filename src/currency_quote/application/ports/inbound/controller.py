@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod, abstractclassmethod
+from abc import ABC, abstractmethod
 from currency_quote.domain.entities.currency import CurrencyQuote
 
 
