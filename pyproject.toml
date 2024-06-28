@@ -16,10 +16,12 @@ classifiers=[
 
 
 [tool.poetry.urls]
-homepage = "https://pypi.org/project/currency-quote-wrapper"
-repository = "https://github.com/IvanildoBarauna/currency-quote-wrapper"
-documentation = "https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/README.md"
-issues = "https://github.com/IvanildoBarauna/currency-quote-wrapper/issues"
+Homepage = "https://pypi.org/project/currency-quote-wrapper"
+ArchDesign = "https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/hexagonal_design_arch.png"
+Repository = "https://github.com/IvanildoBarauna/currency-quote-wrapper"
+README = "https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/README.md"
+Issues = "https://github.com/IvanildoBarauna/currency-quote-wrapper/issues"
+
 
 [tool.setuptools.packages.find]
 where = ["src/"]
