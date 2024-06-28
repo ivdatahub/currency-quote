@@ -9,7 +9,6 @@ class GetHistCurrencyQuoteUseCase:
     def execute(currency_list: list, reference_date: int) -> dict:
         currency_object = CurrencyQuote(currency_list)
         quote_service = GetCurrencyQuoteService(
-            currency=currency_object,
-            currency_repository=CurrencyAPI
+            currency=currency_object, currency_repository=CurrencyAPI
         )
         return quote_service.history(reference_date=reference_date)

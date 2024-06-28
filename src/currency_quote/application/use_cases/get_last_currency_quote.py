@@ -9,7 +9,6 @@ class GetLastCurrencyQuoteUseCase:
     def execute(currency_list: list) -> dict:
         currency_object = CurrencyQuote(currency_list)
         quote_service = GetCurrencyQuoteService(
-            currency=currency_object,
-            currency_repository=CurrencyAPI
+            currency=currency_object, currency_repository=CurrencyAPI
         )
         return quote_service.last()

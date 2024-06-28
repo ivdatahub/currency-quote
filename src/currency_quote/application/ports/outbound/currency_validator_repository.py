@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 
 
 class ICurrencyValidator(ABC):
-
     @abstractmethod
     def __init__(self, currency_list: list):
         pass
