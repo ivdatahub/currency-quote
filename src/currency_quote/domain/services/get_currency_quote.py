@@ -19,7 +19,9 @@ class GetCurrencyQuoteService:
         return self.currency_repository(self.validate_currency_code()).get_last_quote()
 
     def history(self, reference_date: int) -> dict:
-        return {"reference_date": reference_date}
+        return self.currency_repository(
+            self.validate_currency_code()
+        ).get_history_quote(reference_date=reference_date)
 
     def validate_currency_code(self) -> str:
         valid_list = ValidateCurrencyUseCase.execute(self.currency_list)

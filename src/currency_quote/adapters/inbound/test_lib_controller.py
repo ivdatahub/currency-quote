@@ -17,5 +17,5 @@ def test_get_last_quote(setup_client):  # pylint: disable=redefined-outer-name
 
 
 def test_get_hist_quote(setup_client):  # pylint: disable=redefined-outer-name
-    hist_quote = setup_client.get_history_quote(reference_date=20230101)
-    assert isinstance(hist_quote, dict)
+    hist_quote = setup_client.get_history_quote(reference_date=20240621)
+    assert isinstance(hist_quote, list)
