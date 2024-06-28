@@ -3,7 +3,6 @@ from currency_quote.domain.entities.currency import CurrencyQuote
 
 
 class IController(ABC):
-
     @abstractmethod
     def __init__(self, currency: CurrencyQuote):
         self.currency = currency

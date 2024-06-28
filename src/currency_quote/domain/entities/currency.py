@@ -1,5 +1,6 @@
 # currency.py
 
+
 class CurrencyQuote:
     def __init__(self, currency_list: list):
         self.currency_list = currency_list

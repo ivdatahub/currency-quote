@@ -1,5 +1,7 @@
 import pytest
-from currency_quote.application.use_cases.get_last_currency_quote import GetLastCurrencyQuoteUseCase
+from currency_quote.application.use_cases.get_last_currency_quote import (
+    GetLastCurrencyQuoteUseCase,
+)
 
 
 def test_valid_currency():

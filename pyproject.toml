@@ -28,13 +28,13 @@ include = ["currency_quote*"]
 [tool.poetry.dependencies]
 python = "^3.9"
 api-to-dataframe = "^1.2.3"
+pylint = "^3.2.4"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.5.4"
 pytest = "^8.2.2"
 poetry-dynamic-versioning = "^1.3.0"
 black = "^24.4.2"
-pylink = "^0.3.3"
 
 [build-system]
 requires = ["poetry-core"]

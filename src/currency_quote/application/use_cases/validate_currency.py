@@ -9,7 +9,6 @@ class ValidateCurrencyUseCase:
     def execute(currency_list: list) -> list:
         currency_object = CurrencyQuote(currency_list)
         validator_service = CurrencyValidatorService(
-            currency=currency_object,
-            currency_validator=CurrencyValidatorAPI
+            currency=currency_object, currency_validator=CurrencyValidatorAPI
         )
         return validator_service.validate_currency_code()
