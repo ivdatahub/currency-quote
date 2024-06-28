@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "currency-quote"
-version = "2.0.1"
+version = "2.1.0"
 description = "Complete solution for extracting currency pair quotes data. With comprehensive testing, parameter validation, flexible configuration management, Hexagonal Architecture, CI/CD pipelines, code quality tools, and detailed documentation."
 authors = ["IvanildoBarauna <ivanildo.jnr@outlook.com>"]
 readme = "README.md"
@@ -33,6 +33,8 @@ api-to-dataframe = "^1.2.3"
 coverage = "^7.5.4"
 pytest = "^8.2.2"
 poetry-dynamic-versioning = "^1.3.0"
+black = "^24.4.2"
+pylink = "^0.3.3"
 
 [build-system]
 requires = ["poetry-core"]
@@ -41,3 +43,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry-dynamic-versioning]
 enable = true
 versioning = "semantic"
+
+[tool.black]
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "C0114", # missing-module-docstring
+    "C0116", # missing-function-docstring
+]

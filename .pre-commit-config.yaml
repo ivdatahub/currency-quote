@@ -1,5 +1,16 @@
-## Pre Commit Configuration
 repos:
-  -   repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v3.4.0
-      hooks: []
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-pylint
+    rev: v2.14.5
+    hooks:
+      - id: pylint
