@@ -1,10 +1,10 @@
 import pytest
-from currency_quote import CurrencyQuote, ClientBuilder
+from currency_quote import ClientBuilder
 
 
 @pytest.fixture(scope="session")
 def setup_client():
-    return ClientBuilder(currency=CurrencyQuote(currency_list=["USD-BRL"]))
+    return ClientBuilder(currency_list=["USD-BRL"])
 
 
 def test_client_builder(setup_client):  # pylint: disable=redefined-outer-name

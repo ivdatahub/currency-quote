@@ -11,11 +11,12 @@ class CurrencyValidatorService:
         self, currency: CurrencyQuote, currency_validator: Type[ICurrencyValidator]
     ):
         self.currency_validator = currency_validator
+        self.currency_quote = currency
         self.currency_list = currency.get_currency_list()
 
     def validate_currency_code(self) -> list:
         validated_list = self.currency_validator(
-            self.currency_list
+            self.currency_quote
         ).validate_currency_code()
 
         if len(validated_list) == 0:

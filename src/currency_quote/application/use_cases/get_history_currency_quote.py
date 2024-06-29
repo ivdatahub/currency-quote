@@ -6,9 +6,8 @@ from currency_quote.domain.entities.currency import CurrencyQuote
 
 class GetHistCurrencyQuoteUseCase:
     @staticmethod
-    def execute(currency_list: list, reference_date: int) -> dict:
-        currency_object = CurrencyQuote(currency_list)
+    def execute(currency_quote: CurrencyQuote, reference_date: int) -> dict:
         quote_service = GetCurrencyQuoteService(
-            currency=currency_object, currency_repository=CurrencyAPI
+            currency=currency_quote, currency_repository=CurrencyAPI
         )
         return quote_service.history(reference_date=reference_date)
