@@ -58,10 +58,10 @@ See the following docs:
 
 ``` python
 ## Importing library
-from currency_quote import CurrencyQuote, ClientBuilder
+from currency_quote import ClientBuilder
 
 # For get the last quote of one currency
-client = ClientBuilder(currency=CurrencyQuote(currency_list=["USD-BRL"]))
+client = ClientBuilder(["USD-BRL"])
 # or get quotes of multiple currencies
 client = ClientBuilder(
     currency=CurrencyQuote(currency_list=['USD-BRL', 'EUR-BRL'])
