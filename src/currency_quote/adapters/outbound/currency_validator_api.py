@@ -4,11 +4,12 @@ from currency_quote.config.endpoints import API
 from currency_quote.application.ports.outbound.currency_validator_repository import (
     ICurrencyValidator,
 )
+from currency_quote.domain.entities.currency import CurrencyQuote
 
 
 class CurrencyValidatorAPI(ICurrencyValidator):
-    def __init__(self, currency_list: list) -> None:
-        self.currency_list = currency_list
+    def __init__(self, currency_quote: CurrencyQuote) -> None:
+        self.currency_quote = currency_quote
 
     def validate_currency_code(self) -> list:
         client = ClientBuilder(
@@ -20,7 +21,7 @@ class CurrencyValidatorAPI(ICurrencyValidator):
 
         validated_list = []
 
-        for currency_code in self.currency_list:
+        for currency_code in self.currency_quote.get_currency_list():
             if currency_code in valid_list:
                 validated_list.append(currency_code)
 

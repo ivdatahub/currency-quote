@@ -6,9 +6,8 @@ from currency_quote.domain.entities.currency import CurrencyQuote
 
 class GetLastCurrencyQuoteUseCase:
     @staticmethod
-    def execute(currency_list: list) -> dict:
-        currency_object = CurrencyQuote(currency_list)
+    def execute(currency_quote: CurrencyQuote) -> dict:
         quote_service = GetCurrencyQuoteService(
-            currency=currency_object, currency_repository=CurrencyAPI
+            currency=currency_quote, currency_repository=CurrencyAPI
         )
         return quote_service.last()

@@ -9,16 +9,15 @@ from currency_quote.domain.entities.currency import CurrencyQuote
 
 
 class ClientBuilder(IController):
-    def __init__(self, currency: CurrencyQuote):
-        self.currency = currency
+    def __init__(self, currency_list: list):
+        self.currency_list = currency_list
+        self.currency_quote = CurrencyQuote(self.currency_list)
 
     def get_last_quote(self) -> dict:
-        return GetLastCurrencyQuoteUseCase.execute(
-            currency_list=self.currency.get_currency_list()
-        )
+        return GetLastCurrencyQuoteUseCase.execute(currency_quote=self.currency_quote)
 
     def get_history_quote(self, reference_date: int) -> dict:
         return GetHistCurrencyQuoteUseCase.execute(
-            currency_list=self.currency.get_currency_list(),
+            currency_quote=self.currency_quote,
             reference_date=reference_date,
         )

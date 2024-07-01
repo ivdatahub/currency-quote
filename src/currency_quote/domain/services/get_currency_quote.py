@@ -12,7 +12,7 @@ class GetCurrencyQuoteService:
     def __init__(
         self, currency: CurrencyQuote, currency_repository: Type[ICurrencyRepository]
     ):
-        self.currency_list = currency.get_currency_list()
+        self.currency = currency
         self.currency_repository = currency_repository
 
     def last(self) -> dict:
@@ -24,5 +24,5 @@ class GetCurrencyQuoteService:
         ).get_history_quote(reference_date=reference_date)
 
     def validate_currency_code(self) -> str:
-        valid_list = ValidateCurrencyUseCase.execute(self.currency_list)
+        valid_list = ValidateCurrencyUseCase.execute(self.currency)
         return ",".join(valid_list)

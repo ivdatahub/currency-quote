@@ -1,11 +1,10 @@
 from abc import ABC, abstractmethod
-from currency_quote.domain.entities.currency import CurrencyQuote
 
 
 class IController(ABC):
     @abstractmethod
-    def __init__(self, currency: CurrencyQuote):
-        self.currency = currency
+    def __init__(self, currency_list: list):
+        self.currency_list = currency_list
 
     @abstractmethod
     def get_last_quote(self) -> dict:
