@@ -14,7 +14,7 @@ class CurrencyValidatorAPI(ICurrencyValidator):
     def validate_currency_code(self) -> list:
         client = ClientBuilder(
             endpoint=API.ENDPOINT_AVALIABLE_PARITIES,
-            retry_strategy=RetryStrategies.LinearRetryStrategy,
+            retry_strategy=RetryStrategies.LINEAR_RETRY_STRATEGY,
         )
 
         valid_list = client.get_api_data()

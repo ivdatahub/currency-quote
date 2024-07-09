@@ -15,7 +15,7 @@ class CurrencyAPI(ICurrencyRepository):
     def get_last_quote(self) -> dict:
         url = f"{API.ENDPOINT_LAST_COTATION}{self.currency_codes}"
         client = ClientBuilder(
-            endpoint=url, retry_strategy=RetryStrategies.ExponentialRetryStrategy
+            endpoint=url, retry_strategy=RetryStrategies.EXPONENTIAL_RETRY_STRATEGY
         )
 
         response = client.get_api_data()
@@ -34,7 +34,7 @@ class CurrencyAPI(ICurrencyRepository):
             )
 
             client = ClientBuilder(
-                endpoint=url, retry_strategy=RetryStrategies.ExponentialRetryStrategy
+                endpoint=url, retry_strategy=RetryStrategies.EXPONENTIAL_RETRY_STRATEGY
             )
 
             response = client.get_api_data()
