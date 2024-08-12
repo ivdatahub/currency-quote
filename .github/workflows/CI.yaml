@@ -1,4 +1,4 @@
-name: Tests and Pre-build
+name: Tests
 
 on:
   pull_request:
@@ -41,27 +41,27 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
 
-  pre_build:
-    if: github.actor != 'actions[bot]'
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
+  # pre_build:
+  #   if: github.actor != 'actions[bot]'
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: ${{ github.head_ref }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: '3.9'
 
-      - name: Poetry Setup
-        run: |
-          pip install --upgrade pip
-          curl -sSL https://install.python-poetry.org | python3 -
-          poetry config virtualenvs.create false
-          poetry install
+  #     - name: Poetry Setup
+  #       run: |
+  #         pip install --upgrade pip
+  #         curl -sSL https://install.python-poetry.org | python3 -
+  #         poetry config virtualenvs.create false
+  #         poetry install
 
 #      - name: Generate and push Tag
 #        run: |
@@ -72,18 +72,18 @@ jobs:
 #          git push -f origin --tags
 
 
-      - name: Build package
-        run: poetry build
+      # - name: Build package
+      #   run: poetry build
 
-      - name: Repository Setup
-        run: |
-          poetry config repositories.test-pypi https://test.pypi.org/legacy/
+      # - name: Repository Setup
+      #   run: |
+      #     poetry config repositories.test-pypi https://test.pypi.org/legacy/
 
-      - name: Publish package to TestPyPI
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.TEST_PYPI_TOKEN }}
-        run: poetry publish -r test-pypi -u __token__ --password $POETRY_PYPI_TOKEN_PYPI
+      # - name: Publish package to TestPyPI
+      #   env:
+      #     POETRY_PYPI_TOKEN_PYPI: ${{ secrets.TEST_PYPI_TOKEN }}
+      #   run: poetry publish -r test-pypi -u __token__ --password $POETRY_PYPI_TOKEN_PYPI
 
     environment:
       name: Development
-      url: https://test.pypi.org/project/currency-quote/
+      # url: https://test.pypi.org/project/currency-quote/
