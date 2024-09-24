@@ -1,4 +1,5 @@
-# currency.py
+from dataclasses import dataclass
+from datetime import datetime
 
 
 class CurrencyQuote:
@@ -10,3 +11,15 @@ class CurrencyQuote:
             raise ValueError("Currency list is empty")
 
         return self.currency_list
+
+
+@dataclass
+class Currency:  # pylint: disable=too-many-instance-attributes
+    currency_pair: str
+    currency_pair_name: str
+    base_currency_code: str
+    quote_currency_code: str
+    quote_timestamp: int
+    bid_price: float
+    ask_price: float
+    quote_extracted_at: int = int(datetime.now().timestamp())
