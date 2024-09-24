@@ -13,7 +13,7 @@ def test_client_builder(setup_client):  # pylint: disable=redefined-outer-name
 
 def test_get_last_quote(setup_client):  # pylint: disable=redefined-outer-name
     last_quote = setup_client.get_last_quote()
-    assert isinstance(last_quote, dict)
+    assert isinstance(last_quote, list)
 
 
 def test_get_hist_quote(setup_client):  # pylint: disable=redefined-outer-name
