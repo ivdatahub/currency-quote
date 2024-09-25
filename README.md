@@ -13,10 +13,10 @@ With comprehensive testing, parameter validation, flexible configuration managem
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/currency-quote?style=for-the-badge&logo=python)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/currency-quote-wrapper/CI.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests+and+pre+build)](https://github.com/IvanildoBarauna/currency-quote-wrapper/actions/workflows/CI.yaml)
-[![CD](https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/currency-quote-wrapper/CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&event=release&label=Package+publication)](https://github.com/IvanildoBarauna/currency-quote-wrapper/actions/workflows/CD.yaml)
+[![CI](https://img.shields.io/github/actions/workflow/status/ivdatahub/currency-quote/CI.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests+and+pre+build)](https://github.com/ivdatahub/currency-quote/actions/workflows/CI.yaml)
+[![CD](https://img.shields.io/github/actions/workflow/status/ivdatahub/currency-quote/CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&event=release&label=Package+publication)](https://github.com/ivdatahub/currency-quote/actions/workflows/CD.yaml)
 
-[![Codecov](https://img.shields.io/codecov/c/github/IvanildoBarauna/currency-quote-wrapper?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/IvanildoBarauna/currency-quote-wrapper)
+[![Codecov](https://img.shields.io/codecov/c/github/ivdatahub/currency-quote?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/ivdatahub/currency-quote)
 
 ## Project Stack
 
@@ -50,8 +50,8 @@ With comprehensive testing, parameter validation, flexible configuration managem
 
 See the following docs:
 
-- [Contributing Guide](https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/CONTRIBUTING.md)
-- [Code Of Conduct](https://github.com/IvanildoBarauna/currency-quote-wrapper/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing Guide](https://github.com/ivdatahub/currency-quote-wrapper/blob/main/CONTRIBUTING.md)
+- [Code Of Conduct](https://github.com/ivdatahub/currency-quote/blob/main/CODE_OF_CONDUCT.md)
 
 
 ## How to get currency quotes using this library
