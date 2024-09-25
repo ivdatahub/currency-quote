@@ -61,18 +61,99 @@ See the following docs:
 from currency_quote import ClientBuilder
 
 # For get the last quote of one currency
-client = ClientBuilder(["USD-BRL"])
+client = ClientBuilder(currency_list="USD-BRL")
 # or get quotes of multiple currencies
-client = ClientBuilder(
-    currency=CurrencyQuote(currency_list=['USD-BRL', 'EUR-BRL'])
-)
+client = ClientBuilder(currency_list=['USD-BRL', 'EUR-BRL'])
 
 # Get the last quote
 print(client.get_last_quote())
 # Get history quote of currency
 print(client.get_history_quote(reference_date=20220101))
 ```
+* This is expected payload for get Last Quote with USD-BRL currency pair
+```json
+[
+   {
+      "currency_pair":"USD-BRL",
+      "currency_pair_name":"Dólar Americano/Real Brasileiro",
+      "base_currency_code":"USD",
+      "quote_currency_code":"BRL",
+      "quote_timestamp":1727201744,
+      "bid_price":"5.4579",
+      "ask_price":"5.4589",
+      "quote_extracted_at":1727201753
+   }
+]
+```
 
+* This is expected payload for get History Quote with USD-BRL currency pair
+
+```json
+[
+   {
+      "currency_pair":"USD-BRL",
+      "currency_pair_name":"Dólar Americano/Real Brasileiro",
+      "base_currency_code":"USD",
+      "quote_currency_code":"BRL",
+      "quote_timestamp":1719440767,
+      "bid_price":5.524,
+      "ask_price":5.5245,
+      "quote_extracted_at":1727201753
+   }
+]
+```
+
+* This is expected payload for get last Quote with two or more currencies
+
+```json
+[
+   {
+      "currency_pair":"USD-BRL",
+      "currency_pair_name":"Dólar Americano/Real Brasileiro",
+      "base_currency_code":"USD",
+      "quote_currency_code":"BRL",
+      "quote_timestamp":1727201384,
+      "bid_price":"5.4594",
+      "ask_price":"5.4599",
+      "quote_extracted_at":1727201387
+   },
+   {
+      "currency_pair":"USD-EUR",
+      "currency_pair_name":"Dólar Americano/Euro",
+      "base_currency_code":"USD",
+      "quote_currency_code":"EUR",
+      "quote_timestamp":1727201376,
+      "bid_price":"0.8957",
+      "ask_price":"0.8958",
+      "quote_extracted_at":1727201387
+   }
+]
+```
+* This is expected payload for history last Quote with two or more currencies
+```json
+[
+   {
+      "currency_pair":"USD-BRL",
+      "currency_pair_name":"Dólar Americano/Real Brasileiro",
+      "base_currency_code":"USD",
+      "quote_currency_code":"BRL",
+      "quote_timestamp":1727201384,
+      "bid_price":"5.4594",
+      "ask_price":"5.4599",
+      "quote_extracted_at":1727201387
+   },
+   {
+      "currency_pair":"USD-EUR",
+      "currency_pair_name":"Dólar Americano/Euro",
+      "base_currency_code":"USD",
+      "quote_currency_code":"EUR",
+      "quote_timestamp":1727201376,
+      "bid_price":"0.8957",
+      "ask_price":"0.8958",
+      "quote_extracted_at":1727201387
+   }
+]
+```
 ## Hexagonal Design of library
 
 ![Arch](./hexagonal_design_arch.png)

@@ -4,11 +4,11 @@ from currency_quote.config.endpoints import API
 from currency_quote.application.ports.outbound.currency_validator_repository import (
     ICurrencyValidator,
 )
-from currency_quote.domain.entities.currency import CurrencyQuote
+from currency_quote.domain.entities.currency import CurrencyObject
 
 
 class CurrencyValidatorAPI(ICurrencyValidator):
-    def __init__(self, currency_quote: CurrencyQuote) -> None:
+    def __init__(self, currency_quote: CurrencyObject) -> None:
         self.currency_quote = currency_quote
 
     def validate_currency_code(self) -> list:
